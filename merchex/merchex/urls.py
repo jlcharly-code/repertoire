@@ -16,11 +16,20 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from listings import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hello/', views.hello),
-    path('about-us/', views.about),
+    path('bands/', views.band_list, name='band_list'), # update the path and the view
+    path('bands/<int:id>/', views.band_detail, name='band-detail'),
+    path('bands/add/', views.band_create, name='nouveau'),
+    path('about-us/', views.about, name='about'),
+    path('contact-us/', views.contact, name='contact'),
+    path('email-sent/', views.email_sent, name='email-sent'),
+    path('band-update/', views.band_update, name='band-update'),
+    path('band_list/', views.band_list, name='band-list'),
+    path('', include('listings.urls', namespace='listings')),
+
+
 ]

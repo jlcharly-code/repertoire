@@ -1,0 +1,37 @@
+{% extends 'listings/base.html' %}
+
+
+<!--
+   hello.html
+   
+   Copyright 2026 charly <charly@charly>
+   
+   
+-->
+{% block content %}
+
+<h1>Bands</h1>
+
+<ul>
+ {% for band in bands %}
+  <li><a href="{% url 'band-detail' band.id %}">{{ band.name }}</a></li>
+ {% endfor %}
+</ul>
+
+{% endblock %}
+
+    {% block content %}
+
+        <h1 style="text-align: center;">Hello Django!</h1>
+        <p style="color: blue;">My favourite bands are:</p>
+    <ul>
+    {% for listing in listings %}
+        <li>{{ listing.name }}</li>
+    {% endfor %}
+    </ul>
+    {% endblock %}
+   
+
+
+
+

@@ -11,9 +11,13 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+from django.conf import settings
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -23,9 +27,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-k5w05!75vv#(g@_mxmljzu66!z0j9o9&3+1)jw3@0xjc-zk^5x"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+import os
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+DEBUG = os.environ.get('DJANGO_DEBUG', 'False').lower() == 'true'
+
+
+if not DEBUG:
+    
+  ALLOWED_HOSTS = ['vercel.app','localhost', '127.0.0.1']
 
 
 # Application definition
