@@ -4,8 +4,16 @@
 <p><a href="{% url 'band-create' %}">Create new Band</a></p>
 
 {% block content %}
-    <h1>Bands</h1>
+<!-- Nouvelle section d'accueil -->
+    <div style="text-align: center; margin-bottom: 30px;">
+        <h1>Bienvenue sur MerchEx !</h1>
+        <p>Découvrez notre répertoire de groupes et chanteurs.</p>
+        <a href="{% url 'listings:band-create' %}" 
+        class="btn" 
+        style="background: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Ajouter un groupe</a>
+    </div>
     
+   <h2>La liste des groupes</h2>
      <p style="center, color: blue;">My favourite bands are:</p>
 
     <ul>
@@ -15,7 +23,7 @@
                 <a href="{% url 'listings:band-update' band.id %}">[edit]</a>
             </li>
         {% empty %}
-            <li>No bands found.</li>
+            <li>Aucun groupe trouvé. Soyez le premier à en ajouter un !</li>
         {% endfor %}
     </ul>
 {% endblock %}
