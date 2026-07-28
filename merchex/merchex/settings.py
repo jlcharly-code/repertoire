@@ -34,7 +34,7 @@ DEBUG = os.environ.get('DJANGO_DEBUG', 'False').lower() == 'true'
 
 if not DEBUG:
     
-  ALLOWED_HOSTS = ['DJANGO_ALLOWED_HOSTS','vercel.app','localhost', '127.0.0.1']
+  ALLOWED_HOSTS = ['repertoire-gmo6.onrender.com','DJANGO_ALLOWED_HOSTS','vercel.app','localhost', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
