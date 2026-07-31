@@ -1,22 +1,23 @@
 {% load static %}
-
+<!DOCTYPE html>
 <html>
-    <head><title>{% block title %}MerchEx{% endblock %}</title></head>
-     <link rel="stylesheet" href="{% static 'listings/styles.css' %}" />
+<head>
+    <title>{% block title %}MerchEx{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'listings/styles.css' %}" />
+</head>
+<body>
     <header>
         <nav>
-    <p style="text-align: center; bold;</p> 
-    <img src="{% static 'listings/images/logo.png' %}" alt="Logo MerchEx" style="width: 200px; height: auto;">
+            <p style="text-align: center; font-weight: bold;">MerchEx</p>
+            <img src="{% static 'listings/images/logo.png' %}" alt="Logo MerchEx" style="width: 200px; height: auto;">
 
-     <a href="{% url 'band_list' %}">Bands</a>
-     <a href="{% url 'contact' %}">Mail</a>
-     <a href="{% url 'about' %}">About</a>
-     
-     
+            <a href="{% url 'listings:band-list' %}">Bands</a>
+            <a href="{% url 'listings:contact' %}">Mail</a>
+            <a href="{% url 'listings:about' %}">About</a>
         </nav>
-
     </header>
- <main>
+
+    <main>
         {% block content %}
         {% endblock %}
     </main>
